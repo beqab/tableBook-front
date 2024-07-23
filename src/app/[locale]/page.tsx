@@ -12,7 +12,6 @@ export default function Home({
   // Set the locale for the current request to ensure correct translations
   unstable_setRequestLocale(locale);
 
-  // Fetch translations for the "Index" namespace
   const t = useTranslations("Index");
 
   return (
