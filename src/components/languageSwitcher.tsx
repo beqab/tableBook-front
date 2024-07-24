@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useLocale } from "next-intl";
-import { useSearchParams } from "next/navigation";
-import { locales, usePathname, useRouter } from "@/navigation";
+import { useLocale } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
+import { locales, usePathname, useRouter } from '@/navigation';
 
 export type Langs = (typeof locales)[number];
 
@@ -23,7 +23,7 @@ const LanguageSwitcher = () => {
   const handleLanguageSwitch = (lng: Langs) => {
     // Build the new URL with the query parameters
     const query = params.toString();
-    const newUrl = `${pathname}${query ? "?" + query : ""}`;
+    const newUrl = `${pathname}${query ? '?' + query : ''}`;
 
     // Navigate to the new URL with the selected locale
     router.push(newUrl, {
@@ -41,7 +41,7 @@ const LanguageSwitcher = () => {
             key={el}
             onClick={() => handleLanguageSwitch(el)}
             className={`m-2 uppercase cursor-pointer ${
-              el === locale && "active font-bold"
+              el === locale && 'active font-bold'
             }`}
           >
             {el}
