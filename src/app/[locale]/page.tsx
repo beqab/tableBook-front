@@ -3,6 +3,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 
 import LanguageSwitcher from "@/components/languageSwitcher";
 import { Suspense } from "react";
+import Banner from "@/components/molecules/banner";
 
 export default function Home({
   params: { locale },
@@ -15,17 +16,8 @@ export default function Home({
   const t = useTranslations("Index");
 
   return (
-    <main className="flex min-h-screen  p-8">
-      <div>
-        <header>
-          <Suspense fallback="loading">
-            <LanguageSwitcher />
-          </Suspense>
-        </header>
-        <section>
-          <h2>{t("pageTitle")}</h2>
-        </section>
-      </div>
+    <main>
+      <Banner />
     </main>
   );
 }

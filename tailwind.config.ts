@@ -1,20 +1,137 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "media", // or 'class'
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+    accentColor: ({ theme }: any) => ({
+      ...theme("colors"),
+      auto: "auto",
+    }),
+
+    colors: ({ colors }: any) => ({
+      brand: {
+        DEFAULT: "rgb(var(--brand))",
+        500: "rgb(var(--brand-pressed) )",
+        900: "rgb(var(--brand-hover) )",
       },
+      secondary: {
+        DEFAULT: "rgb(var(--brand-secondary) )",
+        500: "rgb(var(--brand-secondary-pressed) )",
+        900: "rgb(var(--brand-secondary-hover) )",
+      },
+      tertiary: {
+        DEFAULT: "rgb(var(--brand-tertiary) )",
+        500: "rgb(var(--brand-tertiary-pressed) )",
+        900: "rgb(var(--brand-tertiary-hover) )",
+      },
+
+      brandText: "rgb(var(--brand-text) )",
+      brandTextSecondary: "rgb(var(--brand-text-secondary) )",
+      brandTextNeutral: "rgb(var(--brand-text-neutral) )",
+
+      brandIconColor: "rgb(var(--brand-icon-color) )",
+      brandIconColorSecondary: "rgb(var(--brand-icon-color-secondary) )",
+
+      brandStokeColor: "rgb(var(--brand-stroke) )",
+      brandStokeActive: "rgb(var(--brand-stroke-active) )",
+      brandStokeSecondary: "rgb(var(--brand-stroke-secondary) )",
+
+      brandBgColor: "rgb(var(--brand-bg-color) )",
+
+      inherit: colors.inherit,
+      current: colors.current,
+      transparent: colors.transparent,
+      black: colors.black,
+      white: colors.white,
+      slate: colors.slate,
+      gray: colors.gray,
+      zinc: colors.zinc,
+      neutral: colors.neutral,
+      stone: colors.stone,
+      red: colors.red,
+      orange: colors.orange,
+      amber: colors.amber,
+      yellow: colors.yellow,
+      lime: colors.lime,
+      green: colors.green,
+      emerald: colors.emerald,
+      teal: colors.teal,
+      cyan: colors.cyan,
+      sky: colors.sky,
+      blue: colors.blue,
+      indigo: colors.indigo,
+      violet: colors.violet,
+      purple: colors.purple,
+      fuchsia: colors.fuchsia,
+      pink: colors.pink,
+      rose: colors.rose,
+    }),
+    borderRadius: {
+      none: "0px",
+      sm: "0.125rem",
+      DEFAULT: "0.25rem",
+      md: "0.375rem",
+      lg: "0.5rem",
+      xl: "0.75rem",
+      "2xl": "1rem",
+      "3xl": "1.5rem",
+      full: "9999px",
+    },
+    screens: {
+      "2xl": { max: "1535px" },
+      xxl: { max: "1340px" },
+      xl: { max: "1279px" },
+      lg: { max: "1023px" },
+      md: { max: "767px" },
+      sm: { max: "639px" },
+      xsm: { max: "560px" },
+    },
+    container: {
+      center: true,
+      padding: "2rem",
+    },
+    fontFamily: {
+      main: ["Gelasio", "sans-serif"],
+      secondary: ["Courgette", "cursive"],
+      sans: [
+        "ui-sans-serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        "Roboto",
+        '"Helvetica Neue"',
+        "Arial",
+        '"Noto Sans"',
+        "sans-serif",
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+        '"Noto Color Emoji"',
+      ],
+      serif: [
+        "ui-serif",
+        "Georgia",
+        "Cambria",
+        '"Times New Roman"',
+        "Times",
+        "serif",
+      ],
+      mono: [
+        "ui-monospace",
+        "SFMono-Regular",
+        "Menlo",
+        "Monaco",
+        "Consolas",
+        '"Liberation Mono"',
+        '"Courier New"',
+        "monospace",
+      ],
     },
   },
   plugins: [],
 };
-export default config;

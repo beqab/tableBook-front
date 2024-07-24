@@ -2,10 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"); */
+@import url("https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Sofia+Sans:ital,wght@0,1;0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,1;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* font-family: 'Gelasio', serif;
+font-family: 'Sofia Sans', sans-serif; */
+
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+/* font-family: 'Courgette', cursive; */
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* colors */
+
+  --brand: 237, 105, 108;
+  --brand-hover: 213, 94, 97;
+  --brand-pressed: 239, 120, 123;
+
+  --brand-secondary: 79, 58, 101;
+  --brand-secondary-hover: 55, 41, 71;
+  --brand-secondary-pressed: 132, 117, 147;
+
+  --brand-tertiary: 172, 159, 187;
+  --brand-tertiary-hover: 138, 127, 150;
+  --brand-tertiary-pressed: 189, 178, 200;
+
+  --brand-text: 33, 43, 54;
+  --brand-text-secondary: 99, 115, 129;
+  --brand-text-neutral: 255, 255, 255;
+
+  --brand-icon-color: 172, 182, 190;
+  --brand-icon-color-secondary: 255, 255, 255;
+
+  --brand-stroke: 224, 224, 224;
+  --brand-stroke-active: 172, 159, 187;
+  --brand-stroke-secondary: 217, 217, 217;
+
+  --brand-bg-color: 243, 244, 246;
+
+  --brand-font: "Gelasio";
+  --brand-secondary-font: "Courgette";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,21 +47,78 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+
+    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+    --secondary-glow: linear-gradient(
+      to bottom right,
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0.3)
+    );
+
+    --tile-start-rgb: 2, 13, 46;
+    --tile-end-rgb: 2, 5, 19;
+    --tile-border: conic-gradient(
+      #ffffff80,
+      #ffffff40,
+      #ffffff30,
+      #ffffff20,
+      #ffffff10,
+      #ffffff10,
+      #ffffff80
+    );
+
+    --callout-rgb: 20, 20, 20;
+    --callout-border-rgb: 108, 108, 108;
+    --card-rgb: 100, 100, 100;
+    --card-border-rgb: 200, 200, 200;
   }
+}
+
+@layer base {
+  .container {
+    @apply max-w-[1535px] xl:max-w-[1279px] lg:max-w-[1023px] md:max-w-[767px] sm:max-w-[639px];
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  /* overflow-x: hidden; */
+  font-family: var(--brand-font), sans-serif;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--brand-bg-color);
+}
+.z-1 {
+  z-index: 1;
+}
+input:focus {
+  outline: none;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
   }
 }
+
+/* <link href="https://free.bboxtype.com/embedfonts/?family=FiraGO:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<style>
+@import url('https://free.bboxtype.com/embedfonts/?family=FiraGO:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+</style>
+Specify the font family in your CSS:
+
+font-family: 'FiraGO', sans-serif; */
