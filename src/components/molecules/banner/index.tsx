@@ -9,10 +9,10 @@ const Banner = () => {
     <div
       className={classNames(
         Style.banner,
-        "banner flex items-center justify-center h-80  md:h-56",
+        "banner flex h-80 items-center justify-center md:h-56",
       )}
     >
-      <h1 className=" font-secondary  max-w-3xl leading-normal text-center text-white w-full  text-[54px] md:text-[28px] md:italic md:max-w-[260px]">
+      <h1 className="w-full max-w-3xl text-center font-secondary text-[54px] leading-normal text-white md:max-w-[260px] md:text-[28px] md:italic">
         {t("bannerText")}
       </h1>
     </div>
