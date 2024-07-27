@@ -4,10 +4,24 @@ import {
   unstable_setRequestLocale,
   getTranslations,
 } from "next-intl/server";
+import { Gelasio, Courgette } from "next/font/google";
 
 import { locales } from "@/navigation";
 
 import "./globals.css";
+
+const GelasioFont = Gelasio({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--brand-font",
+});
+
+const CourgetteFont = Courgette({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--brand-secondary-font",
+  weight: "400",
+});
 
 export async function generateMetadata({
   params: { locale },
@@ -38,7 +52,10 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html
+      lang={locale}
+      className={`${GelasioFont.variable} ${CourgetteFont.variable}`}
+    >
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}

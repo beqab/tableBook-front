@@ -95,8 +95,8 @@ module.exports = {
       padding: "2rem",
     },
     fontFamily: {
-      main: ["Gelasio", "sans-serif"],
-      secondary: ["Courgette", "cursive"],
+      main: ["var(--brand-font)"],
+      secondary: ["var(--brand-secondary-font)"],
       sans: [
         "ui-sans-serif",
         "system-ui",
