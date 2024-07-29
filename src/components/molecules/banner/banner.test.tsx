@@ -1,7 +1,7 @@
-import { describe, it, vi, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import Banner from ".";
 import { useTranslations } from "next-intl";
+
+import Banner from ".";
 
 vi.mock("next-intl", async () => {
   const actual = (await vi.importActual("next-intl")) as any;

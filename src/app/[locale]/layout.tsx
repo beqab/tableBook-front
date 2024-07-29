@@ -9,11 +9,13 @@ import { Gelasio, Courgette } from "next/font/google";
 import { locales } from "@/navigation";
 
 import "./globals.css";
+import LayoutWrapper from "@/components/organisms/layoutWrapper";
 
 const GelasioFont = Gelasio({
   subsets: ["latin"],
   display: "swap",
   variable: "--brand-font",
+  style: "normal",
 });
 
 const CourgetteFont = Courgette({
@@ -21,6 +23,7 @@ const CourgetteFont = Courgette({
   display: "swap",
   variable: "--brand-secondary-font",
   weight: "400",
+  style: "normal",
 });
 
 export async function generateMetadata({
@@ -58,7 +61,7 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <LayoutWrapper>{children}</LayoutWrapper>
         </NextIntlClientProvider>
       </body>
     </html>
