@@ -66,7 +66,7 @@ function Button({
     <button
       className={classnames(style.btn, {
         [style[type]]: type,
-        className,
+        [className]: className,
         [style.iconBtn]: onlyIcon,
         [style.withIcon]: icon && !onlyIcon,
         [style.iconRight]: iconRight,

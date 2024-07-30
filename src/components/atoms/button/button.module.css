@@ -1,7 +1,7 @@
 @tailwind components;
 @layer components {
   .btn {
-    @apply h-12 rounded-full px-7 text-tertiary-900;
+    @apply h-12 rounded-full px-7 text-brandTextNeutral;
   }
   .btn.primary {
     @apply bg-brand hover:bg-brand-900 active:bg-brand-500;
