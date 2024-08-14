@@ -5,8 +5,9 @@ export default createMiddleware({
   defaultLocale: locales[0],
   localePrefix,
   locales,
+  localeDetection: false,
 });
 
 export const config = {
-  matcher: ["/", "/(ka|en)/:path*"],
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };
