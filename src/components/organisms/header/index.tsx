@@ -1,9 +1,14 @@
-import React from "react";
+"use client";
 import { useTranslations } from "next-intl";
 
-import Navbar from "@/components/organisms/navBar";
-import { Link } from "@/navigation";
+import Select from "@/components/atoms/Select";
 import Button from "@/components/atoms/button";
+import SelectOption from "@/components/atoms/selectOption/selectOption";
+import Navbar from "@/components/organisms/navBar";
+import RestaurantFeatures from "@/components/svg/RestaurantFeatures";
+import KitchenIcon from "@/components/svg/kitchenIcon";
+import { Link } from "@/navigation";
+import { useSearchParams } from "next/navigation";
 import CategorySlider from "../categorySlider";
 
 const tList = {
@@ -114,6 +119,7 @@ type Props = {};
 
 const Header = (props: Props) => {
   const t = useTranslations("Index");
+  const searchparams = useSearchParams();
 
   return (
     <div className="fixed left-0 top-0 z-10 w-full bg-brandBgColor">
@@ -124,8 +130,43 @@ const Header = (props: Props) => {
             <div className="w-[60%] px-3 lg:w-[100%]">
               <CategorySlider categoriesList={tList.types} />
             </div>
-            <div className="mr-3 min-w-[200px] lg:hidden">select 1</div>
-            <div className="mr-3 min-w-[200px] xl:mr-0 lg:hidden">select 2</div>
+            <div className="mr-3 min-w-[200px] lg:hidden">
+              <Select
+                options={tList?.spaceTypes}
+                selectFullWrapper
+                renderOption={(option, onSelect) => (
+                  <SelectOption
+                    fieldName="spaceTypes"
+                    cb={onSelect}
+                    option={option}
+                  />
+                )}
+                defaultValue={tList?.spaceTypes.find(
+                  (el) =>
+                    el.value.toString() === searchparams.get("spaceTypes"),
+                )}
+                placeholder={t("features")}
+                defaultIcon={<RestaurantFeatures />}
+              />
+            </div>
+            <div className="mr-3 min-w-[200px] xl:mr-0 lg:hidden">
+              <Select
+                options={tList?.kitchens}
+                selectFullWrapper
+                renderOption={(option, onSelect) => (
+                  <SelectOption
+                    fieldName="kitchen"
+                    cb={onSelect}
+                    option={option}
+                  />
+                )}
+                defaultValue={tList?.kitchens.find(
+                  (el) => el.value.toString() === searchparams.get("kitchen"),
+                )}
+                placeholder={t("kitchen")}
+                defaultIcon={<KitchenIcon />}
+              />
+            </div>
             <Link href={"/search"}>
               <Button className="w-40 xl:hidden">{t("search")}</Button>
             </Link>
