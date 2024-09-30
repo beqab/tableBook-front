@@ -9,7 +9,6 @@ import { Gelasio, Courgette } from "next/font/google";
 import { locales } from "@/navigation";
 
 import "./globals.css";
-import LayoutWrapper from "@/components/organisms/layoutWrapper";
 
 const GelasioFont = Gelasio({
   subsets: ["latin"],
@@ -61,7 +60,7 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider messages={messages}>
-          <LayoutWrapper>{children}</LayoutWrapper>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

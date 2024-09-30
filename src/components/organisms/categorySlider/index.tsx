@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 
 import CategoryItem from "@/components/atoms/catgoryItem";
 
@@ -28,14 +28,16 @@ function CategorySlider({ categoriesList = [] }: Props) {
 
           {categoriesList?.map((item, i) => {
             return (
-              <CategoryItem
-                key={item.value}
-                value={item.value}
-                label={item.label}
-                iconUrl={item.iconUrl}
-                setActiveItem={setActiveItem}
-                activeItem={activeItem}
-              />
+              <Suspense key={item.value} fallback={<>load...</>}>
+                <CategoryItem
+                  key={item.value}
+                  value={item.value}
+                  label={item.label}
+                  iconUrl={item.iconUrl}
+                  setActiveItem={setActiveItem}
+                  activeItem={activeItem}
+                />
+              </Suspense>
             );
           })}
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useCallback, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { useClickOutside } from "@/components/hooks/useClickOutside";
@@ -45,9 +45,9 @@ function Select({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const t = useTranslations("Index");
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     setIsDropdownOpen(false);
-  };
+  }, []);
 
   const ref = useClickOutside<HTMLDivElement>(onClose);
 

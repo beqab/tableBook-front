@@ -1,8 +1,6 @@
 import { useTranslations } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 
-import LanguageSwitcher from "@/components/languageSwitcher";
-import { Suspense } from "react";
 import Banner from "@/components/molecules/banner";
 
 export default function Home({

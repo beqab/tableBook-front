@@ -11,7 +11,7 @@ export const useClickOutside = <T extends Element>(cb: () => void) => {
     document.addEventListener("click", onClickOutside, true);
 
     return () => document.removeEventListener("click", onClickOutside, true);
-  }, []);
+  }, [cb]);
 
   return ref;
 };
