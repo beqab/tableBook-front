@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import Footer from "../footer";
 
 type Props = {
   children: React.ReactNode;
@@ -14,7 +15,9 @@ function BaseLayout({ children, header }: Props) {
         </div>
         <div className="mt-[170px] md:mt-[130px]">{children}</div>
       </div>
-      <div>footer</div>
+      <div>
+        <Footer />
+      </div>
     </main>
   );
 }
