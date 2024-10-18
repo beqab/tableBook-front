@@ -1,0 +1,14 @@
+@tailwind components;
+
+@layer components {
+  .card {
+    height: 413px;
+    width: 100%;
+    min-width: 287px;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 5px 0px rgba(97, 97, 97, 0.25);
+    user-select: none;
+    display: block;
+  }
+}

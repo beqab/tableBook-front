@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import Banner from "@/components/molecules/banner";
-import ContentSlider from "@/components/organisms/contentSlider";
+import PopularSlider from "@/components/organisms/popularSlider";
 
 export default function Home({
   params: { locale },
@@ -17,7 +17,7 @@ export default function Home({
   return (
     <main>
       <Banner />
-      <ContentSlider locale={locale} />
+      <PopularSlider locale={locale} />
     </main>
   );
 }
