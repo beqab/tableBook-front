@@ -2,6 +2,7 @@ import { baseUrl } from "./baseUrl";
 
 interface options {
   headers?: { [key: string]: string };
+  [key: string]: any;
 }
 
 const fetchWithBaseUrl = async (endpoint: string, options: options = {}) => {
